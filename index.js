@@ -15,9 +15,12 @@ const secretManager = new SecretManagerServiceClient();
 const visionClient = new ImageAnnotatorClient();
 
 // Resolve project id reliably on Cloud Functions (2nd gen) / Cloud Run
-async function getProjectId() {
-  return process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT || await new GoogleAuth().getProjectId();
-}
+//async function getProjectId() {
+//  return process.env.GOOGLE_CLOUD_PROJECT || process.env.GCLOUD_PROJECT || await new GoogleAuth().getProjectId();
+//}
+
+// Hardcode the Google Cloud Project ID
+const projectId = 'voyageai-3hlrh';
 
 // Vertex AI (lazy init so we always use the correct project)
 const VERTEX_LOCATION = 'us-central1';
