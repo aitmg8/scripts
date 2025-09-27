@@ -10,14 +10,14 @@ const path = require('path');
 const crypto = require('crypto');
 
 const storage = new Storage();
-const secretManager = new SecretManagerServiceClient();
 const visionClient = new ImageAnnotatorClient();
 
 // Hardcode the Google Cloud Project ID
 const projectId = 'voyageai-3hlrh';
 const location = 'us-central1';
 
-// Initialize Vertex AI client with the hardcoded project ID
+// Initialize clients with the hardcoded project ID to ensure correct authentication
+const secretManager = new SecretManagerServiceClient({ projectId });
 const vertexAI = new VertexAI({ project: projectId, location: location });
 const generativeModel = vertexAI.getGenerativeModel({ model: 'gemini-1.5-flash-001' });
 
@@ -424,3 +424,4 @@ function createDocPoint(fileId, fileName, chunks, openaiEmbeddings, geminiEmbedd
         payload,
     };
 }
+
