@@ -1,0 +1,17 @@
+{
+  "name": "qdrant-file-processor",
+  "version": "1.0.0",
+  "description": "A Google Cloud Function to process files and upsert embeddings to Qdrant.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google-cloud/secret-manager": "^5.3.0",
+    "@google-cloud/storage": "^7.11.0",
+    "axios": "^1.7.2",
+    "googleapis": "^140.0.0"
+  }
+}
