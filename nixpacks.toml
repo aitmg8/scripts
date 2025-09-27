@@ -1,0 +1,20 @@
+# nixpacks.toml
+
+# -- Setup Phase --
+# This phase installs the necessary system packages before building the app.
+[phases.setup]
+# Use the Nix package manager to install packages.
+# This list includes the latest LTS version of Node.js and the Google Cloud CLI.
+nixPkgs = ["nodejs-18_x", "google-cloud-sdk"]
+
+# -- Install Phase --
+# This phase installs the application's dependencies.
+[phases.install]
+# The command to run to install npm dependencies from your package.json file.
+cmds = ["npm install"]
+
+# -- Start Phase --
+# This command runs when the service starts up.
+# For a development environment, we'll keep it running with a simple command.
+[start]
+cmd = "tail -f /dev/null"
